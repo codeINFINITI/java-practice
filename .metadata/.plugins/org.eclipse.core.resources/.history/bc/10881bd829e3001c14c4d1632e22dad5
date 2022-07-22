@@ -1,0 +1,23 @@
+package com.jaideep.spring.main;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.jaideep.spring.model.Coach;
+
+public class DependecyInjectionDriver1 {
+
+	// load spring configfile"
+	ClassPathXmlApplicationContext ctx = new ClassPathXmlApplicationContext("beanScope-applicationContext.xml");
+
+	// getting bean
+	Coach coach = ctx.getBean("coach", Coach.class);
+
+	Coach alphaCoach = ctx.getBean("coach", Coach.class);
+
+	
+	// using bean
+
+	// closing application context
+	ctx.close();
+
+}

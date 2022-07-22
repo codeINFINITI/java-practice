@@ -1,0 +1,15 @@
+package com.jaideep.spring.main;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class BeanScopeDriver {
+	public static void main(String[] args) {
+		// load spring configfile
+		ClassPathXmlApplicationContext ctx=new ClassPathXmlApplicationContext();
+//		getting beans from container
+		
+		//using beans
+		
+		//closing context
+	}
+}

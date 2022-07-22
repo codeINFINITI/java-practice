@@ -1,0 +1,6 @@
+package com.jaideep.spring.model;
+
+public interface Coach {
+	public String getDailyWorkout();
+
+}

@@ -1,0 +1,11 @@
+package com.jaideep.spring.model;
+
+public class SwimCoach implements Coach{
+
+	@Override
+	public String getDailyWorkout() {
+		
+		return "Swim practice for 20 minutes morning and evening";
+	}
+
+}

@@ -1,0 +1,10 @@
+package com.telusko.TeluskoHibernate;
+
+public class BrodosDriver {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}

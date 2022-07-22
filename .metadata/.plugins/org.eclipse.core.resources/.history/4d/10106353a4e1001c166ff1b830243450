@@ -1,0 +1,5 @@
+package com.jaideep.spring.model;
+
+public class BaseBallCoach {
+
+}

@@ -1,0 +1,12 @@
+package com.jaideep.spring.main;
+
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+public class SpringDriver {
+
+	public static void main(String[] args) {
+		ClassPathXmlApplicationContext ctx=new ClassPathXmlApplicationContext();
+
+	}
+
+}

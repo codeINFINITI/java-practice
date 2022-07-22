@@ -1,0 +1,7 @@
+package com.jaideep.spring.model;
+
+public class BaseBallCoach {
+	public String getDailyWorkout() {
+		return "Throw practice for 30 minutes";
+	}
+}

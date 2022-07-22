@@ -1,0 +1,99 @@
+package com.telusko.TeluskoHibernate;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+
+import org.hibernate.Session;
+import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
+import org.hibernate.cfg.Configuration;
+
+import com.telusko.model.Product;
+
+public class BrodosDriver {
+
+	public static void main(String[] args) {
+		String line = "";
+		String splitBy = ";";
+		try {
+
+			BufferedReader br = new BufferedReader(new FileReader("CSVDemo.csv"));
+			while ((line = br.readLine()) != null) {
+				String[] productStr = line.split(splitBy); // use comma as separator
+				Product product = new Product();
+				Object value = getValue(productStr[0], "INTEGER");
+				if (validateValue(value)) {
+
+					product.setArticleNo((Integer) value);
+				}
+
+				product.setName(productStr[1]);
+				value = getValue(productStr[2], "DOUBLE");
+				if (validateValue(value)) {
+
+					product.setPrice((Double) value);
+				}
+				value = getValue(productStr[3], "INTEGER");
+				if (validateValue(value)) {
+
+					product.setStock((Integer) value);
+				}
+				product.setName(productStr[4]);
+				save(product);
+
+			}
+		} catch (
+
+		IOException e) {
+			e.printStackTrace();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	public static Object getValue(String value, String flag) throws Exception {
+		try {
+			if (flag.equals("INTEGER")) {
+				Integer intValue = Integer.valueOf(value);
+				return intValue;
+			} else if (flag.equals("DOUBLE")) {
+				Double doubleValue = Double.valueOf(value);
+				return doubleValue;
+			}
+		} catch (NumberFormatException e) {
+			return "NAN";
+		}
+
+		catch (Exception e) {
+			throw e;
+		}
+		return null;
+
+	}
+
+	public static boolean validateValue(Object value) {
+		if (value != null) {
+			if (value.toString().equals("NAN")) {
+				System.out.println("Value is not a numeric");
+				return false;
+			} else {
+				return true;
+			}
+
+		}
+		return false;
+	}
+	public static void save(Product product) {
+		Configuration configuration = new Configuration().configure().addAnnotatedClass(product.getClass());
+
+		SessionFactory sf = configuration.buildSessionFactory();
+		Session session = sf.openSession();
+
+		Transaction tx = session.beginTransaction();
+
+		session.persist(product);
+
+		tx.commit();
+	}
+}

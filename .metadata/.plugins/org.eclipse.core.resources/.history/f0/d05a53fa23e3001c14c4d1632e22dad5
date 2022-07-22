@@ -1,0 +1,5 @@
+package com.jaideep.spring.main;
+
+public class BeanScopeDriver {
+
+}
