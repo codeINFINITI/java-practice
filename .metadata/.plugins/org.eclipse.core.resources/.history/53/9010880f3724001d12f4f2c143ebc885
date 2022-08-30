@@ -1,0 +1,36 @@
+package com.java.jaideep;
+
+import java.util.HashSet;
+import java.util.Set;
+
+public class Driver {
+	public static void main(String[] args) {
+		String a = "abcsaszzy";
+		Set<Character> set = new HashSet<>();
+		int i = 0;
+		int j = a.length();
+		while (i < j) {
+			Character c1 = a.charAt(i);
+			Character c2 = a.charAt(j);
+			if (set.contains(c1)) {
+				set.remove(c1);
+			} else {
+				set.add(c1);
+			}
+			if (set.contains(c2)) {
+				set.remove(c2);
+			} else {
+				set.add(c2);
+			}
+		}
+//		for (Character c : a.toCharArray()) {
+//			if (set.contains(c)) {
+//				set.remove(c);
+//			} else {
+//				set.add(c);
+//			}
+//		}
+		System.out.println(set.toString());
+
+	}
+}

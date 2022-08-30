@@ -1,0 +1,22 @@
+package com.java.jaideep;
+
+public class Test {
+	public static void main(String[] args) {
+		Integer numA = 0;
+		incrementNumber(numA);
+		numA=numA*2;
+		System.out.println(numA);
+	}
+
+	private static void incrementNumber(Integer num) {
+		num++;
+		Integer numA = 42;
+	}
+
+	public static void rec(Integer num) {
+		if (num > 0) {
+			System.out.println(num);
+			rec(num - 1);
+		}
+	}
+}

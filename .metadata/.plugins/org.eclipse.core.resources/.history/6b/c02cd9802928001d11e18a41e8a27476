@@ -1,0 +1,57 @@
+package com.java.jaideep;
+
+public class Stack {
+	private Integer[] values;
+	private Integer top = -1;
+
+	public Stack(Integer size) {
+		values = new Integer[size];
+	}
+
+	public void push(Integer value) {
+		if (top.equals(values.length - 1)) {
+			System.out.println("stack overflow");
+		} else {
+			top++;
+			values[top] = value;
+		}
+	}
+
+	public Integer pop() {
+		Integer result = null;
+		if (top.equals(-1)) {
+			System.out.println("stack is empty");
+		} else {
+			result = values[top];
+			top--;
+		}
+		return result;
+	}
+
+	public void print() {
+		for (Integer i : values) {
+			if (i != null) {
+				System.out.println(i);
+
+			}
+		}
+	}
+
+	@Override
+	public String toString() {
+		String result = "";
+		for (Integer i : values) {
+			if(i!=null) {
+				
+				result += i + ",";
+			}
+
+		}
+		if (!result.equals("")) {
+			result = result.substring(0, result.length());
+		}
+		return result;
+
+	}
+
+}

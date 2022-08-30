@@ -1,0 +1,13 @@
+package com.java.jaideep;
+
+public class Test {
+	public static void main(String[] args) {
+		rec(10);
+	}
+	public static void rec(Integer num) {
+		if(num>0) {
+			System.out.println(num);
+			rec(num-1);
+		}
+	}
+}
